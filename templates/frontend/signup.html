@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Sign Up</title>
+
+	<!-- Font Icon -->
+	<link rel="stylesheet" href="{% static 'signup/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+	<!-- Main css -->
+	<link rel="stylesheet" href="{% static 'signup/css/style.css' %}">
+</head>
+
+<body>
+
+	<div class="main">
+
+		<!-- Sign up form -->
+		<section class="signup">
+			<div class="container">
+				<div class="signup-content">
+					<div class="signup-form">
+						<h2 class="form-title">Sign up</h2>
+						{% if messages%}
+						<div class="row error-msg">
+							<div class="col center-align">
+								{% for msg in messages %}
+								<b>{{ msg }}</b>
+								{% endfor %}
+							</div>
+						</div>
+						{% endif %}
+						<form method="POST" class="register-form" id="register-form">
+							{% csrf_token %}
+							<div class="form-group">
+								<label for="firstname"><i class="zmdi zmdi-account-box material-icons-name"></i></label>
+								<input type="text" name="firstname" id="firstname" placeholder="First Name" required />
+							</div>
+							<div class="form-group">
+								<label for="lastname"><i class="zmdi zmdi-account-box material-icons-name"></i></label>
+								<input type="text" name="lastname" id="lastname" placeholder="Last Name" required />
+							</div>
+							<div class="form-group">
+								<label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+								<input type="text" name="username" id="username" placeholder="Username" required />
+							</div>
+							<div class="form-group">
+								<label for="number"><i class="zmdi zmdi-phone material-icons-name"></i></label>
+								<input type="tel" name="number" class="form-control" id="inputNumber44"
+									placeholder="Number" required>
+							</div>
+							<div class="form-group">
+								<label for="working_organization"><i
+										class="zmdi zmdi-assignment-o material-icons-name"></i></label>
+								<input type="text" name="working_organization" id="working_organization"
+									placeholder="Working Organization" required />
+							</div>
+							<div class="form-group">
+								<label for="domain"><i class="zmdi zmdi-dns material-icons-name"></i></label>
+								<input type="text" name="domain" id="domain" placeholder="Domain" required />
+							</div>
+							<div class="form-group">
+								<label for="designation"><i
+										class="zmdi zmdi-graduation-cap material-icons-name"></i></label>
+								<input type="text" name="designation" id="designation" placeholder="Designation"
+									required />
+							</div>
+							<div class="form-group">
+								<label for="skill_sets"><i
+										class="zmdi zmdi-code-setting material-icons-name"></i></label>
+								<input type="text" name="skill_sets" id="skill_sets" placeholder="Skill Sets"
+									required />
+							</div>
+							<div class="form-group">
+								<label for="email"><i class="zmdi zmdi-email"></i></label>
+								<input type="email" name="email" id="email" placeholder="Your Email" required />
+							</div>
+							<div class="form-group">
+								<label for="pass"><i class="zmdi zmdi-lock"></i></label>
+								<input type="password" name="password" id="password" placeholder="Password" required />
+							</div>
+							<div class="form-group">
+								<label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+								<input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"
+									required />
+							</div>
+							<div class="form-group form-button">
+								<input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+							</div>
+						</form>
+					</div>
+					<div class="signup-image">
+						<figure><img src="{% static 'images/signup-image.jpg' %}" alt="sing up image"></figure>
+						<a href="{% url 'frontend.login' %}" class="signup-image-link">I am already member</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- JS -->
+	<script src="{% static 'signup/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'signup/js/main.js' %}"></script>
+</body>
+
+</html>
